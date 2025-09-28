@@ -24,34 +24,34 @@ export const NounPreview = ({ svg }: NounPreviewProps) => {
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(svg);
-      alert('SVG 代码已复制到剪贴板！');
+      alert('SVG code copied to clipboard!');
     } catch (err) {
-      console.error('复制失败:', err);
+      console.error('Copy failed:', err);
     }
   };
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold">生成的 Noun</h2>
+        <h2 className="text-xl font-semibold">Generated Noun</h2>
         <div className="flex gap-2">
           <button
             onClick={() => setShowCode(!showCode)}
             className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700"
           >
-            {showCode ? '隐藏代码' : '显示代码'}
+            {showCode ? 'Hide Code' : 'Show Code'}
           </button>
           <button
             onClick={downloadSVG}
             className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
           >
-            下载 SVG
+            Download SVG
           </button>
           <button
             onClick={copyToClipboard}
             className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
           >
-            复制代码
+            Copy Code
           </button>
         </div>
       </div>
@@ -68,7 +68,7 @@ export const NounPreview = ({ svg }: NounPreviewProps) => {
 
         {showCode && (
           <div className="flex-1">
-            <h3 className="text-lg font-semibold mb-2">SVG 代码</h3>
+            <h3 className="text-lg font-semibold mb-2">SVG Code</h3>
             <pre className="bg-gray-900 text-green-400 p-4 rounded-lg overflow-auto max-h-96 text-xs">
               <code>{svg}</code>
             </pre>

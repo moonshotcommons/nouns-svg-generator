@@ -2,21 +2,21 @@ import { ImageData, getNounSeedFromBlockHash, getNounData } from '@nouns/assets'
 import { buildSVG } from '@nouns/sdk';
 
 export const generateNounSVG = (nounId: number, blockHash: string): string => {
-  // 1. 生成种子
+  // 1. Generate seed
   const seed = getNounSeedFromBlockHash(nounId, blockHash);
   
-  // 2. 获取图像数据
+  // 2. Get image data
   const { parts, background } = getNounData(seed);
   const { palette } = ImageData;
   
-  // 3. 构建SVG
+  // 3. Build SVG
   const svg = buildSVG(parts, palette, background);
   
   return svg;
 };
 
 export const generateRandomNounSVG = (): string => {
-  // 生成随机种子
+  // Generate random seed
   const randomSeed = {
     background: Math.floor(Math.random() * 2),
     body: Math.floor(Math.random() * 30),

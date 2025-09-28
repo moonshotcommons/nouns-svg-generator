@@ -20,7 +20,7 @@ export const NounSVGGenerator = () => {
       setSvg(generatedSvg);
       setSeedInfo(info);
     } catch (error) {
-      console.error('生成失败:', error);
+      console.error('Generation failed:', error);
     } finally {
       setIsLoading(false);
     }
@@ -33,7 +33,7 @@ export const NounSVGGenerator = () => {
       setSvg(randomSvg);
       setSeedInfo(null);
     } catch (error) {
-      console.error('生成失败:', error);
+      console.error('Generation failed:', error);
     } finally {
       setIsLoading(false);
     }
@@ -43,10 +43,10 @@ export const NounSVGGenerator = () => {
     <div className="max-w-4xl mx-auto p-6 space-y-6">
       <div className="text-center">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          Nouns SVG 生成器
+          Nouns SVG Generator
         </h1>
         <p className="text-gray-600">
-          基于 Nouns 协议生成 SVG 图片
+          Generate SVG images based on Nouns protocol
         </p>
       </div>
 
@@ -61,7 +61,7 @@ export const NounSVGGenerator = () => {
               value={nounId}
               onChange={(e) => setNounId(Number(e.target.value))}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="输入 Noun ID"
+              placeholder="Enter Noun ID"
             />
           </div>
           
@@ -74,7 +74,7 @@ export const NounSVGGenerator = () => {
               value={blockHash}
               onChange={(e) => setBlockHash(e.target.value)}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="输入区块哈希"
+              placeholder="Enter block hash"
             />
           </div>
         </div>
@@ -85,7 +85,7 @@ export const NounSVGGenerator = () => {
             disabled={isLoading}
             className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isLoading ? '生成中...' : '生成 Noun'}
+            {isLoading ? 'Generating...' : 'Generate Noun'}
           </button>
           
           <button
@@ -93,32 +93,32 @@ export const NounSVGGenerator = () => {
             disabled={isLoading}
             className="px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isLoading ? '生成中...' : '随机生成'}
+            {isLoading ? 'Generating...' : 'Random Generate'}
           </button>
         </div>
 
         {seedInfo && (
           <div className="bg-gray-50 rounded-md p-4 mb-6">
-            <h3 className="text-lg font-semibold mb-2">种子信息</h3>
+            <h3 className="text-lg font-semibold mb-2">Seed Information</h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
               <div>
-                <span className="font-medium">背景:</span> {seedInfo.seed.background}
+                <span className="font-medium">Background:</span> {seedInfo.seed.background}
               </div>
               <div>
-                <span className="font-medium">身体:</span> {seedInfo.seed.body}
+                <span className="font-medium">Body:</span> {seedInfo.seed.body}
               </div>
               <div>
-                <span className="font-medium">配饰:</span> {seedInfo.seed.accessory}
+                <span className="font-medium">Accessory:</span> {seedInfo.seed.accessory}
               </div>
               <div>
-                <span className="font-medium">头部:</span> {seedInfo.seed.head}
+                <span className="font-medium">Head:</span> {seedInfo.seed.head}
               </div>
               <div>
-                <span className="font-medium">眼镜:</span> {seedInfo.seed.glasses}
+                <span className="font-medium">Glasses:</span> {seedInfo.seed.glasses}
               </div>
             </div>
             <div className="mt-2">
-              <span className="font-medium">背景颜色:</span> #{seedInfo.background}
+              <span className="font-medium">Background Color:</span> #{seedInfo.background}
             </div>
           </div>
         )}
